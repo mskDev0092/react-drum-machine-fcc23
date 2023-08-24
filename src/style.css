@@ -1,0 +1,64 @@
+h1,
+p {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  background-color: rgb(132, 240, 105);
+}
+.display {
+  background-color: rgb(7, 7, 7);
+  border: 2px solid black;
+  height: 80px;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  text-align: center;
+  color: rgba(68, 212, 248, 0.5);
+}
+.drum-pad {
+  background-color: rgb(8, 1, 1);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-column-gap: 12px;
+  grid-row-gap: 12px;
+  padding: 20px;
+  border-end-end-radius: 20px;
+  border-end-start-radius: 20px;
+}
+
+.btn button {
+  background-color: red;
+  width: 20px;
+  height: 20px;
+  margin: 4px;
+}
+
+button {
+  height: 100px;
+  border-radius: 50%;
+  border: none;
+  color: rgb(7, 1, 1);
+  background-color: rgb(14, 194, 226);
+  font-size: large;
+}
+button:hover {
+  border: 3px solid rgb(255, 72, 0);
+}
+
+.btn {
+  border: 2px solid wheat;
+  width: 50px;
+  border-radius: 30%;
+  background-color: aliceblue;
+}
+
+.btn:hover {
+  background-color: aqua;
+}
+
+.active {
+}
