@@ -48,16 +48,16 @@ const DATA = [
     url: 'https://s3.amazonaws.com/freecodecamp/drums/Cev_H2.mp3',
   },
 ];
-let x = DATA.map((e) => e.url);
 
 export default function Drum() {
-  const [data, setData] = useState('');
   const [display, setDisplay] = useState('Welcome');
-  const [playing, setPlaying] = useState(false);
+  const [url, setUrl] = useState();
   const [volume, setVolume] = useState(34);
   const [isActive, setIsActive] = useState(false);
   const toggle = ['display', 'drum-pad'];
 
+  const audio = new Audio();
+  audio.src = url;
   useEffect(() => {
     document.title = `${display}`;
     setIsActive(false);
@@ -65,14 +65,15 @@ export default function Drum() {
 
   const handleClick = (e) => {
     // Play the sound from the URL.
-    setPlaying(e.url);
+    setUrl(e.url);
     // Update the displayer to show the played.
     setDisplay(e.id);
+    audio.play();
   };
 
   return (
     <div id="drum-machine">
-      <div id="display" className="display" onChange={(e) => setDisplay(e.id)}>
+      <div id="display" className="display" onChange={(e) => setDisplay()}>
         <h1>{display}</h1>
       </div>
       <div className="btn">
