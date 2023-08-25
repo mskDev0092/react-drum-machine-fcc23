@@ -56,10 +56,15 @@ button:hover {
   background-color: aliceblue;
 }
 
-.btn:hover {
-  background-color: aqua;
+.btn button:hover {
+  width: 35px;
+  background-color: black;
 }
-
-.active {
-  background-color: blue;
+.activePads {
+  transform: 'scale(0.95)';
+  box-shadow: '1px 1px 4px 4px cyan, -1px -1px 4px 4px cyan';
+}
+.offPads {
+  transform: 'scale(1)';
+  box-shadow: 'none';
 }
