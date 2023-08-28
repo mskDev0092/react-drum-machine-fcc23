@@ -69,23 +69,14 @@ export default function Drum() {
   const audio = new Audio();
   audio.src = url;
 
-  function onKeyDown(e) {
-    const nodeRef = useRef();
-
-    useEffect(() => {
-      document.title = `${display}`;
-      nodeRef.current = e.keyCode;
-      setIsActive(false);
-    }, [e]);
-    console.log(nodeRef.current.keyCode);
-  }
+  useEffect(() => {
+    document.title = `${display}`;
+  }, []);
 
   const handleKeyboard = (e) => {
-    if (nodeRef) {
-      setUrl(e.url);
-      setDisplay(e.id);
-      audio.play();
-    }
+    setUrl(e.url);
+    setDisplay(e.id);
+    audio.play();
   };
 
   const handleClick = (e) => {
@@ -97,37 +88,40 @@ export default function Drum() {
   };
 
   return (
-    <div id="drum-machine">
-      <div id="display" className="display" onChange={(e) => setDisplay()}>
-        <h1>{display}</h1>
+    <>
+      <div id="drum-machine" className="drum-machine">
+        <div id="display" className="display" onChange={(e) => setDisplay()}>
+          <h1>{display}</h1>
+        </div>
+        <div className="menue">
+          <div className="btn">
+            <button
+              onClick={() => setIsActive(!isActive)}
+              className={isActive ? 'activePads' : 'offPads'}
+            ></button>
+          </div>
+          <div>
+            <input
+              type="range"
+              min="1"
+              max="100"
+              value={volume}
+              onChange={(e) => setVolume(e.target.value)}
+            />
+          </div>
+        </div>
+        <div className="drum-pad" id="drum-pad">
+          {DATA.map((e) => (
+            <button
+              key={e.id}
+              onClick={() => handleClick(e)}
+              onKeyDown={() => handleKeyboard(e)}
+            >
+              {e.key}
+            </button>
+          ))}
+        </div>
       </div>
-      <div className="btn">
-        <button
-          onClick={() => setIsActive(!isActive)}
-          className={isActive ? 'activePads' : 'offPads'}
-        ></button>
-      </div>
-      <div>
-        <input
-          type="range"
-          min="1"
-          max="100"
-          value={volume}
-          onChange={(e) => setVolume(e.target.value)}
-        />
-      </div>
-
-      <div className="drum-pad" id="drum-pad">
-        {DATA.map((e) => (
-          <button
-            key={e.id}
-            onClick={() => handleClick(e)}
-            onKeyDown={() => handleKeyboard(e)}
-          >
-            {e.key}
-          </button>
-        ))}
-      </div>
-    </div>
+    </>
   );
 }
