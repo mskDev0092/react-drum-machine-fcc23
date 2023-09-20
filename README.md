@@ -14,6 +14,6 @@
 
 ## 🔗 Links
 
-[![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://github.com/mskDev0092/react-calculator23)
+[![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://github.com/mskDev0092)
 
 [Edit on StackBlitz ⚡️](https://stackblitz.com/edit/react-drum-machine-fcc23)
